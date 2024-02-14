@@ -55,7 +55,10 @@ class TicTacToe:
             self.print_board()
 
             if self.current_player == 'O' and is_single_player:
-                position = random.choice([i for i, val in enumerate(self.board) if val == ' '])
+                if self.board[4] == ' ':
+                    position = 4
+                else:
+                    position = random.choice([i for i, val in enumerate(self.board) if val == ' '])
             else:
                 print(f"Ходит игрок {self.current_player}")
                 position = int(input('Выберите позицию (1 - 9): ')) - 1
